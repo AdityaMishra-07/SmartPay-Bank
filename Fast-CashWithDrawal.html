@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast-CashWithDrawal</title>
+    <style>
+        body,html{
+            margin: 0%;
+            padding: 0%;
+            height: 100%;
+            background-color: rgb(178, 207, 217);
+        }
+        .container{
+            height: 100%;
+            background-color: rgb(178, 207, 217);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        #banklogo{
+            margin-top: 100px;
+            height: 90px;
+            width: 90px;
+            border-radius: 30px;
+            transition: transform 0.4s;
+        }
+        #banklogo:hover{
+            transform: scale(1.02);
+        }
+        .menubox {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            text-align: center;
+        }
+        #menubar{
+            margin-right: 5px;
+            height: 30px;
+            width: 30px;
+            transition: transform 0.2s;
+        }
+        #menubar:hover{
+            transform: scale(1.08);
+        }
+        #backButton{
+            margin-right: 5px;
+            height: 40px;
+            width: 90px;
+            border-radius: 10px;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            transition: transform 0.4s;
+        }
+        #backButton:hover{
+            transform: scale(1.08);
+        }
+        .box{
+            text-align: center;
+        }
+        .dassboard{
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .transaction-options{
+            color: white;
+            margin: 20px auto;
+            padding: 40px 100px;
+            width: 40%;
+            background-color: rgba(122, 155, 166, 0.815);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            transition: transform 0.6s;
+        }
+        .transaction-options:hover{
+            transform: scale(1.02);
+        }
+        .box1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .box2, .box3 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .transaction-options button {
+            margin: 5px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgb(46, 120, 224);
+            color: white;
+            transition: transform 0.4s;
+            height: 50px;
+            width: 120px;
+        }
+        .transaction-options button:hover {
+            transform: scale(1.08);
+        }
+        .box1,.box2,.box3{
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="menubox">
+            <a href="ATM-S.html" ><button id="backButton">Back</button></a>
+            <a href="index.html"><img src="images/menu-bar.png" id="menubar" alt="load"></a>
+        </div>
+
+        <div class="box">
+            <img src="images/bank-transfer.png" id="banklogo">
+            <h2>Fast-Cash Withdrawal</h2>
+        </div>
+
+        <div class="dassboard">
+            <div class="transaction-options">
+                <h2>Select Transection</h2>
+                <div class="box1">
+                    <button onclick="dep500()">500</button></a>
+                    <button onclick="dep1000()">1000</button></a>
+                </div>
+                <div class="box2">
+                    <button onclick="dep2000()">2000</button></a>
+                    <button onclick="dep4000()">4000</button></a>
+                </div>
+                <div class="box3">
+                    <button onclick="dep5000()">5000</button></a>
+                    <button onclick="dep10000()">10000</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let balance = 175000; // Example initial balance
+    
+        function dep500() {
+            let amount = 500;
+            let newBalance = balance - amount;
+            alert("Transaction Successful !!\n₹" + amount + " has been debited.\nNow Your Available Balance: ₹" + newBalance);
+        }
+    
+        function dep1000() {
+            let amount = 1000;
+            let newBalance = balance - amount;
+            alert("Transaction Successful !!\n₹" + amount + " has been debited.\nNow Your Available Balance: ₹" + newBalance);
+        }
+    
+        function dep2000() {
+            let amount = 2000;
+            let newBalance = balance - amount;
+            alert("Transaction Successful !!\n₹" + amount + " has been debited.\nNow Your Available Balance: ₹" + newBalance);
+        }
+    
+        function dep4000() {
+            let amount = 4000;
+            let newBalance = balance - amount;
+            alert("Transaction Successful !!\n₹" + amount + " has been debited.\nNow Your Available Balance: ₹" + newBalance);
+        }
+    
+        function dep5000() {
+            let amount = 5000;
+            let newBalance = balance - amount;
+            alert("Transaction Successful !!\n₹" + amount + " has been debited.\nNow Your Available Balance: ₹" + newBalance);
+        }
+    
+        function dep10000() {
+            let amount = 10000;
+            let newBalance = balance - amount;
+            alert("Transaction Successful !!\n₹" + amount + " has been debited.\nNow Your Available Balance: ₹" + newBalance);
+        }
+    </script>
+    
+
+</body>
+</html>

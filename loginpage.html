@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Log-In page</title>
+<style>
+        body,html{
+            margin: 0%;
+            padding: 0%;
+            height: 100%;
+        }
+        .container{
+            height: 100%;
+            background-color: rgb(178, 207, 217);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .menubox {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            text-align: center;
+        }
+        #menubar{
+            height: 40px;
+            width: 40px;
+            transition: transform 0.2s;
+        }
+        #menubar:hover{
+            transform: scale(1.08);
+        }
+        a{
+            font-size: 22px;
+            color: rgb(74, 156, 228);
+        }
+        a:hover{
+            color: rgb(24, 128, 219);
+        }
+        .box1{
+            text-align: center;
+        }
+        .box2{
+            background-color: rgba(128, 161, 172, 0.815);
+            padding: 50px 15px;
+            border-radius: 10px;
+            border: 1px solid #2f3542;
+            transition: transform 0.8s;
+            flex-direction: row;
+            margin-top: 20px;
+        }
+        .box2:hover{
+            transform: scale(1.02);
+        }
+        h2{
+            font-size: 23px;
+            color: rgb(56, 60, 62);
+        }
+        #banklogo{
+            height: 90px;
+            width: 90px;
+            border-radius: 30px;
+            transition: transform 0.4s;
+        }
+        #banklogo:hover{
+            transform: scale(1.02);
+        }
+        input{
+            font-size: 16px;
+            color: #515763;
+            background-color: rgba(202, 206, 207, 0.815);
+            height: 30px;
+            width: 340px;
+            border-radius: 5px;
+            border: 1px solid #6a707c;
+        }
+        input:hover{
+            transform: scale(1.01);
+            color: rgb(23, 21, 21);
+            background-color: rgba(190, 214, 219, 0.815);
+        }
+        button{
+            border-radius: 13px;
+            border: 1.5px solid rgb(3, 22, 44);
+            background-color: rgb(9, 103, 210);
+            cursor: pointer;
+            font-size: 22px;
+            height: 32px;
+            width: 340px;
+            transition: transform 0.4s;
+        }
+        button:hover{
+            transform: scale(1.04); 
+            background-color: rgb(173, 200, 210);
+            border: 2px solid rgba(45, 58, 62, 0.815);
+        }
+        #refreshbutton{
+            height: 22px;
+            width: 22px;
+            cursor: pointer;
+        }
+        #newUser,#forgot{
+            color: rgb(5, 57, 188);
+        }
+        #newUser{
+            font-size: 17px;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="menubox">
+            <a href="index.html"><img src="images/menu-bar.png" id="menubar" alt="load"><br><span>Home</span></a>
+        </div>
+
+        <div class="box1">
+            <img src="Images/bank-transfer.png" id="banklogo">
+            <h2>Log-In To<br>SmartPay Bank<br></h2>
+        </div>
+
+        <div class="box2">
+            <form id="loginForm">
+                <label for="username">Enter Username*</label><br>
+                <input type="text" id="username" required><br><br>
+
+                <label for="password">Enter Password*</label><br>
+                <input type="password" id="password" required><br><br>
+
+                <label for="captcha">Enter the text as shown below*</label><br>
+                <input type="text" id="captcha" required><br>
+
+                <p id="randomString" style="display: inline; font-weight: bold;"></p><br>
+                <img src="images/counter-clockwise.png" onclick="generateRandomString()" id="refreshbutton"><br><br>
+            
+                <button type="submit">Log-In</button><br><br>
+            </form>
+
+            <a href="NewUserform.html">
+                <p id="newUser" >New User ? Resgister here/Sign-Up</p>
+            </a>
+            <p id="forgot">Forgot <span>Password</span>/ <span>Username</span></p>
+
+        </div>
+    </div>
+
+    <Script>
+        let generatedCaptcha = "";
+        function generateRandomString(){
+            let characters= 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            generatedCaptcha = '';
+
+            for (let i=0;i<5;i++){
+                generatedCaptcha += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            document.getElementById('randomString').textContent= generatedCaptcha;
+        }
+
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let user = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let captchaInput = document.getElementById("captcha").value.trim();
+        
+            if (user === "" || password === "" || captchaInput === "") {
+                alert("Please fill all required fields!");
+                return;
+            }
+
+            if (captchaInput !== generatedCaptcha) {
+                alert("CAPTCHA does not match. Please try again!");
+                generateRandomString();
+                return;
+            }
+
+            alert("Login successful! Redirecting to dashboard...");
+            window.location.href = "Dassboard.html"
+        });
+        // Generate CAPTCHA on page load
+        window.onload = generateRandomString;
+    </Script>
+    
+</body>
+</html>

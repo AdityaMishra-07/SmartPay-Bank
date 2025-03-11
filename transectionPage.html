@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransectionPage</title>
+    <style>
+        body,html{
+            margin: 0%;
+            padding: 0%;
+            height: 100%;
+            background-color: rgb(195, 223, 232);
+        }
+        .container{
+            height: 100%;
+            /* background-color: rgb(195, 223, 232); */
+        }
+        .header{
+            background-color:  rgb(111, 181, 205);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #logo{
+            margin-left: 20px;
+            height: 80px;
+            width: 80px;
+            transition: transform 0.4s;
+        }
+        #logo:hover{
+            transform: scale(1.08);
+        }
+        #name{
+            text-align: center;
+            font-size: 23px;
+            font-weight: bold;
+            color: rgb(4, 47, 97);
+        }
+        #backButton{
+            margin-right: 20px;
+            height: 40px;
+            width: 90px;
+            border-radius: 10px;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            transition: transform 0.4s;
+        }
+        #backButton:hover{
+            transform: scale(1.08);
+        }
+        .dassboard{
+            text-align: center;
+            padding: 50px;
+        }
+        .transaction-options{
+            color: white;
+            margin: 20px auto;
+            padding: 20px;
+            width: 60%;
+            background-color: rgba(122, 155, 166, 0.815);
+            justify-content: center;
+            align-items: center;
+        }
+        #atms {
+            margin: 10px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgb(46, 120, 224);
+            color: white;
+            transition: transform 0.6s;
+        }
+        #atms:hover {
+            transform: scale(1.09);
+        }
+        #nonworkable {
+            margin: 10px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgb(46, 120, 224);
+            color: rgb(188, 170, 170);
+        }
+        .footer{
+            background-color: rgba(71, 94, 102, 0.621);
+            padding: 20px;
+            font-size: 17px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header" id="header">
+            <div class="logo"><img src="images/bank-transfer.png" alt="load" id="logo"></div>
+            <div class="name"><p id="name">Transection Page</p></div>
+            <div class="menubox">
+                <a href="Dassboard.html">
+                    <button id="backButton">Back</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="dassboard">
+            <h2>Transaction Options</h2>
+            <div class="transaction-options">
+                <button id="nonworkable">Bill Payment</button>
+                <button id="nonworkable">Mobile Recharge</button>
+                <button id="nonworkable">Loan Payment</button>
+                <button id="nonworkable">Transaction History</button>
+                <a href="transfer.html"><button id="atms">Fund Transfer</button></a>
+                <a href="ATM-S.html"><button id="atms">ATM Services</button></a>
+            </div>
+            </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="footer">
+                <p>&copy; 2025 SmartPay Bank | All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

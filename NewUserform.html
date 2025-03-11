@@ -1,0 +1,372 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sign-Up Form</title>
+    <style>
+        body,html{
+            margin: 0%;
+            padding: 0%;
+            height: auto;
+            background-color: rgb(195, 223, 232);
+        }
+        .container{
+            height: auto;
+            background-color: rgb(195, 223, 232);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .header{
+            background-color: rgb(111, 181, 205);
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #logo{
+            margin-left: 10px;
+            height: 80px;
+            width: 80px;
+            transition: transform 0.4s;
+        }
+        #logo:hover{
+            transform: scale(1.08);
+        }
+        #name{
+            text-align: center;
+            font-size: 23px;
+            font-weight: bold;
+            color: rgb(4, 47, 97);
+        }
+        #menubar{
+            height: 40px;
+            width: 40px;
+            transition: transform 0.4s;
+        }
+        #menubar:hover{
+            transform: scale(1.08);
+        }
+        .box{
+            border: 2px solid black ;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 20px 60px;
+        }
+        #Registration{
+            text-align: center;
+        }
+        #select{
+            height: 35px;
+            width: 250px;
+            font-size: 16px;
+        }
+        #inputfield,#username,#password,#confirmpassword,#select{
+            height: 35px;
+            width: 250px;
+            font-size: 16px;
+            color: rgb(88, 85, 85);
+            border: 2px solid rgb(116, 108, 108);
+            border-radius: 3px;
+            transition: transform 0.6s;
+        }
+        #inputfield:hover,#username:hover,#password:hover,#confirmpassword:hover,#select:hover{
+            color: black;
+            transform: scale(1.03);
+            border-color: rgb(56, 53, 53);
+            background-color: rgb(215, 226, 229);
+        }
+        #aligninputs{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        #yes,#no,#check{
+            height: 20px;
+            width: 20px;
+        }
+        .submitbutton{
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            height: 37px;
+            width: 200px;
+            border-radius: 15px;
+            border: 1.5px solid rgb(3, 22, 44);
+            background-color: rgb(9, 103, 210);
+            cursor: pointer;
+            font-size: 25px;
+            transition: transform 0.6s;
+        }
+        button:hover{
+            transform: scale(1.04); 
+            background-color: rgb(173, 200, 210);
+            border: 2.2px solid rgba(45, 58, 62, 0.815);
+        }
+        .footer{
+            background-color: rgba(71, 94, 102, 0.621);
+            height: 90px;
+            width: 100%;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="header" id="header">
+            <div class="logo"><img src="images/bank-transfer.png" alt="load" id="logo"></div>
+            <div class="name"><p id="name">SmartPay Bank</p></div>
+            <div class="menubox">
+                <a href="index.html" id="menuLogo"><img src="images/menu-bar.png" id="menubar" alt="load"><br><span>Home</span></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <form id="Sign-Upform">
+            <h2 id="Registration">Bank Account Registration Form</h2><hr>
+
+                <h3>Account Information</h3>
+                <label for="accounttype">Account Type</label><br><br>
+                <Select id="select" required>
+                    <option value="" disabled selected><span id="innertext">Please Select</span></option>
+                    <option value="1">Saving Account</option>
+                    <option value="2">Current Account</option>
+                    <option value="3">Fixed Deposit (FD) Account</option>
+                    <option value="4">Recurring Deposit (RD) Account</option>
+                    <option value="5">Salary Account</option>
+                    <option value="6">NRI Accounts (for Non-Resident Indians)</option>
+                    <option value="7">Bussiness Account</option>
+                </Select><hr>
+
+                <h3>Personal Information</h3>
+                <p>The information given in this section is considered as the information of the primary account owner information.</p>
+
+                <label for="name">Name</label><br><br>
+                <input type="text" placeholder="Prefix" id="inputfield">
+                <input type="text" placeholder="First Name" id="inputfield" required> 
+                <input type="text" placeholder="Last Name" id="inputfield"><br><br>
+                
+                <label for="Gender">Gender</label><br><br>
+                <select name="gender" id="select" required>
+                    <option value="" disabled selected><span id="innertext">Please Select</span></option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Other</option>
+                </select><br><br>
+
+                <div class="pd" id="aligninputs">
+                    <label for="dob">DOB<br><br>
+                        <input type="date" placeholder="MM-DD-YYYY" id="inputfield" required>
+                    </label>
+
+                    <label for="phonenumber">Phone Number<br><br>
+                        <input type="number" placeholder="000-000-0000" id="inputfield" required>
+                    </label>
+                </div><br>
+
+                <div class="rs" id="aligninputs">
+                    <label for="ResidentalAddress">Residental Address<br><br>
+                        <input type="text" id="inputfield" required><br><br>
+                    </label>
+
+                    <label for="StreetAddress">Street Address<br><br>
+                        <input type="text" id="inputfield" required>
+                    </label>
+                </div>
+
+                <div class="sp" id="aligninputs">
+                        <label for="StreetAddressLine2">Street Address Line 2<br><br>
+                            <input type="text" id="inputfield"><br><br>
+                        </label>
+
+                        <label for="pincode">Postal / Zip Code<br><br>
+                            <input type="number" id="inputfield" required>
+                        </label>
+                </div>
+
+                <div class="sc" id="aligninputs">
+                    <label for="state">State<br><br>
+                        <input type="text" id="inputfield" required><br><br>
+                    </label>
+
+                    <label for="city">City<br><br>
+                        <input type="text" id="inputfield" required>
+                    </label>
+                </div>
+                
+                <div class="cm" id="aligninputs">
+                    <label for="Citizenship">Citizenship<br><br>
+                        <input type="text" id="inputfield" required><br><br>
+                    </label>
+
+                    <label for="marital">Marital Status<br><br>
+                        <select id="select" required>
+                            <option value="" disabled selected><span id="innertext">Please Select</span></option>
+                            <option value="1">Married</option>
+                            <option value="2">Single</option>
+                            <option value="3">Divorced</option>
+                            <option value="4">Widowed</option>
+                            <option value="5">Seprated</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="oe" id="aligninputs">
+                    <label for="occupation">Occupation<br><br>
+                        <input type="text" id="inputfield" required><br><br>
+                    </label>
+                    
+                    <label for="Employername">Employer Name<br><br>
+                        <input type="text" id="inputfield"><br><br>
+                    </label>
+                    
+                </div>
+
+                <hr>
+                <p>Do you want to Active Digital Banking Services?</p>
+                <label for="yes">
+                    <input type="radio" name="gender" id="yes" onclick="toggleBanking(true)" required><span>YES</span>
+                </label>
+                <label for="no">
+                    <input type="radio" name="gender" id="no" onclick="toggleBanking(false)"><span>No</span>
+                </label>
+                
+                <!-- Digital Banking Section (Initially Hidden) -->
+                <div class="digitalbanking" id="digitalBankingSection" style="display: none;">
+                    <h3>Digital Banking</h3>
+                    <label for="username">Create UserName<br><br>
+                        <input type="text" id="username" required>
+                        <p id="countuser"></p>
+                    </label>
+
+                    <label for="password">Create Password<br><br>
+                        <input type="password" id="password" required>
+                        <p id="countpass"></p>
+                    </label>
+
+                    <label for="cpassword">Confirm Password<br><br>
+                        <input type="password" id="confirmpassword" required>
+                        <p id="checkpass"></p>
+                    </label>
+                </div>
+
+                <br><br><hr>
+                <p>By signing this form, I acknowledge that the information I've given in this form is accurate and I agree all the terms and conditions.</p>
+
+                <label for="terms">
+                    <input type="checkbox" id="check" required><span> I agree to </span> <span style="color: blue;"><u>terms & conditions.</u></span><span style="color: red;">*</span><br><br>
+                </label>
+
+                <label for="date">Date<br><br>
+                    <input type="date" placeholder="MM-DD-YYYY" id="inputfield" required><br><br>
+                </label>
+                
+                <hr>
+
+                <div class="submitbutton">
+                    <button type="submit">Submit</button>
+                </div>
+                
+
+            </form>
+        </div>
+        <div class="footer">
+            <p>&copy; 2025 SmartPay Bank | All Rights Reserved</p>
+        </div>
+    </div>
+    
+    <script>
+        // for hiding digital banking
+        function toggleBanking(show){
+            const section = document.getElementById("digitalBankingSection");
+            section.style.display =show ? "block" : "none";
+        }
+        //for username
+        document.getElementById("username").addEventListener("input", function () {
+            let input = this.value;
+            let count = document.getElementById("countuser");
+
+            if (input.length === 0) {
+                count.innerHTML = '';
+            } else if (input.length < 6) {
+                count.innerHTML = 'Username is Weak';
+                count.style.color = 'red';
+            } else if (input.length >= 6 && input.length < 10) {
+                count.innerHTML = 'Username is Medium';
+                count.style.color = 'orange';
+            } else {
+                count.innerHTML = 'Username is Strong';
+                count.style.color = 'green';
+            }
+        });
+        //for password
+        document.getElementById("password").addEventListener("input", function () {
+            let input = this.value;
+            let count = document.getElementById("countpass");
+
+            if (input.length === 0) {
+                count.innerHTML = '';
+            } else if (input.length < 6) {
+                count.innerHTML = 'Password is Weak';
+                count.style.color = 'red';
+            } else if (input.length >= 6 && input.length < 10) {
+                count.innerHTML = 'Password is Medium';
+                count.style.color = 'orange';
+            } else {
+                count.innerHTML = 'Password is Strong';
+                count.style.color = 'green';
+            }
+        });
+        //for confirm password
+        document.getElementById("confirmpassword").addEventListener("input", function () {
+            let password = document.getElementById("password").value;
+            let confirmPassword = this.value;
+            let check = document.getElementById("checkpass");
+
+            if (confirmPassword.length === 0) {
+                check.innerHTML = "";
+            } else if (password !== confirmPassword) {
+                check.innerHTML = "Passwords do not match!";
+                check.style.color = 'red';
+            } else {
+                check.innerHTML = "Passwords match!";
+                check.style.color = 'green';
+            }
+        });
+        document.getElementById("Sign-Upform").addEventListener("submit" , function (event){
+            event.preventDefault();
+
+            // check if password match
+            let username=document.getElementById("username").value;
+
+            let password=document.getElementById("password").value;
+            let cpassword=document.getElementById("confirmpassword").value;
+            if(password != cpassword){
+                alert ("password do not match");
+                return false;
+            }
+            else if(username.length<6){
+                alert ("username is weak");
+                return false;
+            }
+            else if(password.length < 6 ){
+                alert ("password is weak");
+                return false;
+            }
+            alert("Sign-Up Successful! Redirecting...");
+            window.location.href = "Dassboard.html"; // Change to your next page
+        })
+
+    </script>
+
+</body>
+</html>

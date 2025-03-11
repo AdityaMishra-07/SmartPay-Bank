@@ -1,0 +1,200 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pin-Change SmartPay Bank</title>
+        <style>
+            body,html{
+                margin: 0%;
+                padding: 0%;
+                height: 100%;
+            }
+            .container{
+                height: 100%;
+                background-color: rgb(178, 207, 217);
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+            #banklogo{
+                margin-top: 100px;
+                height: 90px;
+                width: 90px;
+                border-radius: 30px;
+                transition: transform 0.4s;
+            }
+            #banklogo:hover{
+                transform: scale(1.02);
+            }
+            .menubox {
+                position: absolute;
+                top: 20px;
+                right: 10px;
+                text-align: center;
+            }
+            #menubar{
+                margin-right: 5px;
+                height: 30px;
+                width: 30px;
+                transition: transform 0.2s;
+            }
+            #menubar:hover{
+                transform: scale(1.08);
+            }
+            a{
+                font-size: 22px;
+                color: rgb(74, 156, 228);
+            }
+            a:hover{
+                color: rgb(24, 128, 219);
+            }
+            .box1{
+                text-align: center;
+            }
+            .box2{
+                background-color: rgba(128, 161, 172, 0.815);
+                padding: 50px 15px;
+                border-radius: 10px;
+                border: 1px solid #2f3542;
+                transition: transform 0.8s;
+                flex-direction: row;
+                margin-top: 20px;
+            }
+            .box2:hover{
+                transform: scale(1.02);
+            }
+            h2{
+                font-size: 23px;
+                color: rgb(56, 60, 62);
+            }
+            input{
+                font-size: 16px;
+                color: #515763;
+                background-color: rgba(202, 206, 207, 0.815);
+                height: 30px;
+                width: 340px;
+                border-radius: 5px;
+                border: 1px solid #6a707c;
+            }
+            input:hover{
+                transform: scale(1.01);
+                color: rgb(23, 21, 21);
+                background-color: rgba(190, 214, 219, 0.815);
+            }
+            button{
+                border-radius: 13px;
+                border: 1.5px solid rgb(3, 22, 44);
+                background-color: rgb(9, 103, 210);
+                cursor: pointer;
+                font-size: 22px;
+                height: 32px;
+                width: 340px;
+                transition: transform 0.4s;
+            }
+            button:hover{
+                transform: scale(1.04); 
+                background-color: rgb(173, 200, 210);
+                border: 2px solid rgba(45, 58, 62, 0.815);
+            }
+            #backButton{
+            margin-right: 5px;
+            height: 40px;
+            width: 90px;
+            border-radius: 10px;
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            transition: transform 0.4s;
+            }
+            #backButton:hover{
+                transform: scale(1.08);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="menubox">
+                <a href="ATM-S.html" ><button id="backButton">Back</button></a>
+                <a href="index.html"><img src="images/menu-bar.png" id="menubar" alt="load"></a>
+            </div>
+            <div class="box1">
+                <img src="images/bank-transfer.png" id="banklogo">
+                <h2>Pin Change</h2>
+            </div>
+
+            <div class="box2">
+                <form id="pinchange">
+                    <label for="AccountNumber">Account Number*</label><br>
+                    <input type="number" id="account" readonly placeholder="xxxx xxxx 9101"><br><br>
+
+                    <label for="newpin">New Pin*</label><br>
+                    <input type="number" id="newpin" required><br>
+                    <p id="countpass"></p>
+
+                    <label for="confirmpin">Confirm Pin*</label><br>
+                    <input type="number" id="confirmpin" required><br>
+                    <p id="checkpass"></p>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+        <script>
+        //for password
+        document.getElementById("newpin").addEventListener("input", function () {
+            let input = this.value;
+            let count = document.getElementById("countpass");
+
+            if (input.length === 0) {
+                count.innerHTML = '';
+            } else if (input.length < 6) {
+                count.innerHTML = 'Password is Weak';
+                count.style.color = 'red';
+            } else if (input.length >= 6 && input.length < 10) {
+                count.innerHTML = 'Password is Medium';
+                count.style.color = 'orange';
+            } else {
+                count.innerHTML = 'Password is Strong';
+                count.style.color = 'green';
+            }
+        });
+        //for confirm password
+        document.getElementById("confirmpin").addEventListener("input", function () {
+            let password = document.getElementById("newpin").value;
+            let confirmPassword = this.value;
+            let check = document.getElementById("checkpass");
+
+            if (confirmPassword.length === 0) {
+                check.innerHTML = "";
+            } else if (password !== confirmPassword) {
+                check.innerHTML = "Passwords do not match!";
+                check.style.color = 'red';
+            } else {
+                check.innerHTML = "Passwords match!";
+                check.style.color = 'green';
+            }
+        });
+
+
+        document.getElementById("pinchange").addEventListener("submit" , function (event){
+            event.preventDefault();
+
+            // check if password match
+            let password=document.getElementById("newpin").value;
+            let cpassword=document.getElementById("confirmpin").value;
+            if(password != cpassword){
+                alert ("password do not match");
+                return false;
+            }
+            else if(password.length < 6 ){
+                alert ("password is weak");
+                return false;
+            }
+            alert("Pin Change Successful! Redirecting...");
+            window.location.href = "ATM-S.html"; // Change to your next page
+            })
+        </script>
+
+    </body>
+</html>
